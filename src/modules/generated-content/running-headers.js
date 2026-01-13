@@ -106,7 +106,7 @@ class RunningHeaders extends Handler {
 	afterPageLayout(fragment) {
 		for (let name of Object.keys(this.runningSelectors)) {
 			let set = this.runningSelectors[name];
-			let selected = fragment.querySelector(set.selector);
+			let selected = fragment.querySelector('.pagedjs_page_content ' + set.selector);
 			if (selected) {
 				if (set.identifier === "running") {
 					set.first = selected;
