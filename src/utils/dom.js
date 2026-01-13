@@ -479,13 +479,7 @@ export function rebuildTree(node, fragment, alreadyRendered) {
 								originalElement = findElement(pos, alreadyRendered);
 								copyWidth(originalElement, pos);
 
-								// I've tried to make the THEAD invisible; this is the best
-								// I could achieve. It gets a zero height but still somehow
-								// affects the container height by a couple of pixels in my
-								// testing. :(
-								// Next step is to change the "true" below to use a custom
-								// attribute that lets you control whether the header is shown.
-								if (true) {
+								if (subject.closest('table').dataset.repeatHeaders != 'true') {
 									pos.style.visibility = "collapse";
 									pos.style.marginTop = "0px";
 									pos.style.marginBottom = "0px";
