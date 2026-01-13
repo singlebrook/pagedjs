@@ -55,6 +55,7 @@
     "specs": "npm run pretest && jest --config=specs/jest.config.js",
     "compile": "babel src/ -d lib/ --out-file-extension .cjs",
     "legacy": "babel dist/paged.js --out-file dist/paged.legacy.js && babel dist/paged.polyfill.js --out-file dist/paged.polyfill.legacy.js",
+    "prepare": "npm run build",
     "pretest": "npm run build && npm run compile",
     "prepublishOnly": "npm run build && npm run compile && npm run legacy",
     "watch": "rollup -w -c",
