@@ -669,7 +669,7 @@ class Layout {
 	) {
 		let breakToken, breakLetter;
 
-		ranges.forEach((overflowRange) => {
+		ranges.forEach((overflowRange, idx) => {
 			let overflowHooks = this.hooks.onOverflow.triggerSync(
 				overflowRange,
 				rendered,
@@ -702,10 +702,12 @@ class Layout {
 				}
 			});
 
+			/* I'm not certain of the intent of this, but it's definitely breaking some things
 			// Stop removal if we are in a loop
 			if (breakToken.equals(prevBreakToken)) {
 				return;
 			}
+			*/
 
 			if (overflow?.node && overflow?.offset && overflow?.node?.textContent) {
 				breakLetter = overflow.node.textContent.charAt(overflow.offset);
